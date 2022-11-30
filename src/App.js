@@ -22,7 +22,7 @@ function App() {
 
   return (
     <div className="App">
-      <h1>Development Branch</h1>
+      <h1>Main Branch</h1>
     </div>
   );
 
