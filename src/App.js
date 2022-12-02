@@ -11,7 +11,8 @@ function App() {
   const randomCharacters = ["Eleven", "Robin Buckley"];
   const [scoreboard, setScoreboard] = useState(0);
   const [questionsAsked, setQuestionsAsked] = useState(0);
-  const [runItBack, setRunItBack] = useState(Boolean)
+  let usersAnswer;
+
 
 
  
@@ -48,8 +49,28 @@ function App() {
       });
     
     })
-  }, [])
+  }, [questionsAsked])
 
+  const getUserAnswer = (e, userChoice) =>{
+    e.preventDefault(); 
+    usersAnswer = userChoice
+    gameLogic(usersAnswer);
+  }
+
+  const gameLogic = (usersAnswer) =>{
+    console.log(usersAnswer);
+
+    if(usersAnswer === author){
+      console.log("correct!");
+      setScoreboard(scoreboard + 1);
+    } else {
+      console.log("wrong");
+    }
+    setQuestionsAsked(questionsAsked + 1);
+  }
+
+  console.log(questionsAsked);
+  console.log(`Score ${scoreboard}`);
 
 
   return (
@@ -58,6 +79,7 @@ function App() {
           quote={quotes}
           character={author}
           randomCharacter={randomFinalCharacter}
+          getUserPick={getUserAnswer}
           />
     </div>
   );
