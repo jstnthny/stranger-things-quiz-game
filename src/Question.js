@@ -4,20 +4,35 @@ const Question = (props) => {
 
 
    const [userAnswer, setUserAnswer] = useState('')
+   const [checkedOne, setCheckedOne] = useState(false);
+   const [checkedTwo, setCheckedTwo] = useState(false);
 
    const submitHandler = (e) =>{
     props.getUserPick(e,userAnswer);
+    resetButtons();
    }
 
+//    Need to figure out logic to reset checked value whenever we update state
    const handleClick = ((e) =>{
-    // console.log(e.target.value);
     setUserAnswer(e.target.value);
-   })
 
-//    const handleSubmit = (e) =>{
-//     e.preventDefault(); 
-//     console.log(userAnswer)
-//    }
+    console.log(e.target.id);
+    if(e.target.id == "option1"){
+        setCheckedOne(true);
+        setCheckedTwo(false);
+        console.log(e.target);
+    } else {
+        setCheckedTwo(true);
+        setCheckedOne(false);
+    }
+    // resetButtons();
+   }
+   )
+
+   const resetButtons = () =>{
+    setCheckedOne(false);
+    setCheckedTwo(false);
+   }
 
 
     return(
@@ -25,11 +40,11 @@ const Question = (props) => {
         <form onSubmit={submitHandler}>
             <fieldset>{props.quote}</fieldset>
             <div>
-                <input type="radio" id="option1" name="character" value={props.character} onClick={handleClick}></input>
+                <input type="radio" id="option1" name="character" value={props.character} onClick={handleClick} checked={checkedOne}></input>
                 <label htmlFor="option1">{props.character}</label>
             </div>
             <div>
-                <input type="radio" id="option2" name="character" value={props.randomCharacter} onClick={handleClick}></input>
+                <input type="radio" id="option2" name="character" value={props.randomCharacter} onClick={handleClick} checked={checkedTwo}></input>
                 <label htmlFor="option2">{props.randomCharacter}</label>
             </div>
             <div>

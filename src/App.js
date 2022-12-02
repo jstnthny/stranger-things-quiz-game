@@ -51,11 +51,13 @@ function App() {
     })
   }, [questionsAsked])
 
+
   const getUserAnswer = (e, userChoice) =>{
     e.preventDefault(); 
     usersAnswer = userChoice
     gameLogic(usersAnswer);
   }
+
 
   const gameLogic = (usersAnswer) =>{
     console.log(usersAnswer);
