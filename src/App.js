@@ -1,28 +1,64 @@
-// import { useEffect, useState } from 'react';
-// import axios from 'axios';
+import { useEffect, useState } from 'react';
+import axios from 'axios';
+import Question from './Question.js';
 import './App.css';
 
 function App() {
 
-  // const [quotes, setQuotes] = useState([]);
-  // const [author, setAuthor] = useState([]);
-  // STRANGER THINGS API
-  //  useEffect(() => {
-  //   axios({
-  //     url: "https://strangerthings-quotes.vercel.app/api/quotes/5",
-  //   }).then((res) => {
-  //     res.data.map((obj) =>{
-  //     console.log(obj);
-  //     quotes.push(obj.quote);
-  //     });
-  //   })
-  // }, [])
+  const [quotes, setQuotes] = useState([]);
+  const [author, setAuthor] = useState([]);
+  const [randomFinalCharacter, setRandomFinalCharacter] = useState();
+  const randomCharacters = ["Eleven", "Robin Buckley"];
+  const [scoreboard, setScoreboard] = useState(0);
+  const [questionsAsked, setQuestionsAsked] = useState(0);
+  const [runItBack, setRunItBack] = useState(Boolean)
 
-  // console.log(quotes);
+
+ 
+
+
+  // STRANGER THINGS API
+   useEffect(() => {
+    axios({
+      url: "https://strangerthings-quotes.vercel.app/api/quotes/1",
+    }).then((res) => {
+      res.data.map((obj) =>{
+      console.log(obj);
+      // quotes.push(obj.quote); 
+      setQuotes(obj.quote);
+      // author.push(obj.author);
+      setAuthor(obj.author);
+
+      // Function to grab a random character for our second option
+
+      const getRandomCharacter = (randomCharacter) => {
+          // Filter to remove the orignal author of the quote from the array so we don't get a duplicate
+         const newArray = randomCharacter.filter((character) =>{
+          return character != obj.author
+      })
+
+      console.log(newArray);
+      // Setting our randndom character state with the help of a random number generator
+      setRandomFinalCharacter(newArray[Math.floor(Math.random() * newArray.length)])
+
+    }
+
+    getRandomCharacter(randomCharacters);
+
+      });
+    
+    })
+  }, [])
+
+
 
   return (
     <div className="App">
-      <h1>Development Branch</h1>
+      <Question 
+          quote={quotes}
+          character={author}
+          randomCharacter={randomFinalCharacter}
+          />
     </div>
   );
 
@@ -32,25 +68,37 @@ function App() {
 export default App;
 
 
-// Psuedo Code
 
 //------------------------------------------------------------------// 
+  // Psuedo Code
 
-// App Component
-// Create state items to hold quotes(array) & authors(array)
-// Create an arary with some random chracters to use as the other 2 options to guess
-// Create state item for scoreboard
+  // App Component
 
-// When user presses start button, call API with 10 quotes
-// Store quotes into quotes array & authors into authors array
+  // Create state items to hold quote & author
+  // Create state item for scoreboard
+  // Create an array with some random characters to use as the other options to guess
+  // Create a getRandomCharacter function that we'll be using to pick a random character from our array as our second option to guess for the quote
+  // Create a questionsAsked state that we will be updating whenever a question is answered we will also be passing into our dependency array so we can call the api and
+  // get a new quote whenever a question is answered
 
-// Create for loop that will run 10 times (because each game will only consist of 10 quotes)
-  // Create first question
-  // get first objects quote & author
-  // create 3 buttons (possible authors of quote) one will be the correct answer for the quote and then 2 more authors will be randomly chosen 
-  // from the authors array
+  // When user presses start button, call API  ( url: "https://strangerthings-quotes.vercel.app/api/quotes/1) with useEffect
+      // <Question quote={question.quote}
+      //           optionOne={question.author}
+      //           optionTwo={getRandomCharacter} 
+      // />
 
-  // display quote with selections of authors for the user
-    // if user selects correct author(character) then update stateValue of score +1
+  // Whenever a question is answered (when one of the buttons is pressed) we update a state that we pass into our dependency array so can get a new quote from the api
+  // We also update our scoreboard if the user gets a question correct
+  // Update questionsAsked state by 1 whenever a questions is answered & when questionsAsked = 10 the game is over and the user will be given a option to play again (by pressing a button)
+    // This will then reset our scoreboard state and questionsAsked state back to 0 
 
-  // then display next quote
+  // Question Component
+    //Create question component that we will importing into our App.js to create each question
+    
+    // return(
+    //    <div>
+    //      <h2>{props.quote}<h2> 
+    //      <button>{props.author}</button>
+    //      <button>{randomCharacter[randomNumber]}</button>
+    //    </div>
+    // )
