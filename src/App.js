@@ -13,7 +13,6 @@ function App() {
                             "Dustin Henderson", "Lucas Sinclair", "Jonathan Byers", "Steve Harrington"];
   const [scoreboard, setScoreboard] = useState(0);
   const [questionsAsked, setQuestionsAsked] = useState(0);
-  const [showUserAnswer, setShowUserAnswer] = useState([""]);
   let usersAnswer;
 
 
@@ -38,7 +37,7 @@ function App() {
       const getRandomCharacter = (randomCharacter) => {
           // Filter to remove the orignal author of the quote from the array so we don't get a duplicate
          const newArray = randomCharacter.filter((character) =>{
-          return character != obj.author
+          return character !== obj.author
       })
 
       console.log(newArray);

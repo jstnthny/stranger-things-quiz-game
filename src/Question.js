@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 
 const Question = (props) => {
 
@@ -17,7 +17,7 @@ const Question = (props) => {
     setUserAnswer(e.target.value);
 
     console.log(e.target.id);
-    if(e.target.id == "option1"){
+    if(e.target.id === "option1"){
         setCheckedOne(true);
         setCheckedTwo(false);
         console.log(e.target);
