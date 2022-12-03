@@ -66,13 +66,17 @@ input[type="radio"]{
   text-align: center;
 }
 
+fieldset{
+  border: none;
+  font-size: 1.5rem;
+}
+
 label{
-  /* position: relative; */
-  color: orange;
+  color:white;
   font-size: 1.1rem;
-  border: 2px solid green;
+  border: 2px solid darkred;
   border-radius: 5px;
-  padding: 10px 50px;
+  padding: 15px 10px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -81,15 +85,11 @@ label{
 }
 
 input[type="radio"]:checked + label{
-  background-color: blue;
+  background-color: darkred;
   color: white;
 
 }
 
-input[type="radio"]:checked + label:before{
-  border: 10px solid white;
-  background-color: blue;
-}
 
 
 /* MODAL STYLES */
