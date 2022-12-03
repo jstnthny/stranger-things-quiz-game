@@ -9,8 +9,6 @@ function App() {
   const [quotes, setQuotes] = useState([]);
   const [author, setAuthor] = useState([]);
   const [randomFinalCharacter, setRandomFinalCharacter] = useState();
-  const randomCharacters = ["Eleven", "Robin Buckley", "Max Mayfield", "Mike Wheeler", "Joyce Byers", "Jim Hopper",
-                            "Dustin Henderson", "Lucas Sinclair", "Jonathan Byers", "Steve Harrington"];
   const [scoreboard, setScoreboard] = useState(0);
   const [questionsAsked, setQuestionsAsked] = useState(0);
   let usersAnswer;
@@ -31,7 +29,8 @@ function App() {
       setAuthor(obj.author);
 
       // Function to grab a random character for our second option
-
+      const randomCharacters = ["Eleven", "Robin Buckley", "Max Mayfield", "Mike Wheeler", "Joyce Byers", "Jim Hopper",
+                            "Dustin Henderson", "Lucas Sinclair", "Jonathan Byers", "Steve Harrington"];
       const getRandomCharacter = (randomCharacter) => {
           // Filter to remove the orignal author of the quote from the array so we don't get a duplicate
          const newArray = randomCharacter.filter((character) =>{
