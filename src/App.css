@@ -48,6 +48,49 @@ body{
   margin: 0;
 }
 
+/* QUESTION STYLES */
+
+.input-container{
+  display: flex;
+  justify-content:space-between;
+  margin: 20px 0;
+  gap: 1.1rem;
+}
+
+.radio-container{
+  width: 33%;
+}
+
+input[type="radio"]{
+  display: none;
+  text-align: center;
+}
+
+label{
+  /* position: relative; */
+  color: orange;
+  font-size: 1.1rem;
+  border: 2px solid green;
+  border-radius: 5px;
+  padding: 10px 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+
+}
+
+input[type="radio"]:checked + label{
+  background-color: blue;
+  color: white;
+
+}
+
+input[type="radio"]:checked + label:before{
+  border: 10px solid white;
+  background-color: blue;
+}
+
 
 /* MODAL STYLES */
 

@@ -75,11 +75,6 @@ function App() {
     setQuestionsAsked(questionsAsked + 1);
   }
 
-  // const showAnswer =() =>{
-  //   setOpenModal(true);
-  // //  setShowUserAnswer(<Answer correctAnswer={author} closeModal={setQuestionsAsked}/>)
-  // }
-// TESTING FUNCTIOANLITY WITH MODAL WE WILL PROB DELETE THIS & ADJUST FOR OUR NEEDS
   const [openModal, setOpenModal] = useState(false)
 
   const gameLogic = (usersAnswer) =>{

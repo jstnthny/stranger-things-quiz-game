@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import './App.css';
 
 const Question = (props) => {
 
@@ -43,26 +44,29 @@ const Question = (props) => {
 
 
     return(
-
-        <form onSubmit={submitHandler}>
-            <fieldset>"{props.quote}"</fieldset>
-            <div>
-                <input type="radio" id="option1" name="character" value={props.character} onClick={handleClick} checked={checkedOne} required></input>
-                <label htmlFor="option1">{props.character}</label>
-            </div>
-            <div>
-                <input type="radio" id="option2" name="character" value={props.randomCharacterOne} onClick={handleClick} checked={checkedTwo} required></input>
-                <label htmlFor="option2">{props.randomCharacterOne}</label>
-            </div>
-             <div>
-                <input type="radio" id="option3" name="character" value={props.randomCharacterTwo} onClick={handleClick} checked={checkedThree} required></input>
-                <label htmlFor="option2">{props.randomCharacterTwo}</label>
-            </div>
-            <div>
-                {/* <label htmlFor="submitBtn"></label> */}
-                <input type="submit" id="submitBtn"></input>
-            </div>
-        </form>
+        <div className="question-container">
+            <form onSubmit={submitHandler}>
+                <fieldset>"{props.quote}"</fieldset>
+                <div className="input-container">
+                    <div className="radio-container">
+                        <input type="radio" id="option1" name="character" value={props.character} onClick={handleClick} checked={checkedOne} required></input>
+                        <label htmlFor="option1">{props.character}</label>
+                    </div>
+                    <div className="radio-container">
+                        <input type="radio" id="option2" name="character" value={props.randomCharacterOne} onClick={handleClick} checked={checkedTwo} required></input>
+                        <label htmlFor="option2">{props.randomCharacterOne}</label>
+                    </div>
+                    <div className="radio-container">
+                        <input type="radio" id="option3" name="character" value={props.randomCharacterTwo} onClick={handleClick} checked={checkedThree} required></input>
+                        <label htmlFor="option3">{props.randomCharacterTwo}</label>
+                    </div>
+                </div>
+                <div>
+                    <input type="submit" id="submitBtn"></input>
+                </div>
+            </form>
+        </div>
+        
 
     )
 }
