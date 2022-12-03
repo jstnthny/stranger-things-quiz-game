@@ -1,9 +1,7 @@
-import {  useState } from 'react';
 import './App.css';
 
 const Answer = (props) => {
 
-const [questionAsked, setQuestionAsked] = useState()
 
 const closeHandler = () =>{
     props.closeModal(false);

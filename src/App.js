@@ -27,9 +27,7 @@ function App() {
     }).then((res) => {
       res.data.map((obj) =>{
       console.log(obj);
-      // quotes.push(obj.quote); 
       setQuotes(obj.quote);
-      // author.push(obj.author);
       setAuthor(obj.author);
 
       // Function to grab a random character for our second option
@@ -48,7 +46,7 @@ function App() {
 
     getRandomCharacter(randomCharacters);
 
-
+    return obj;
       });
     
     })
