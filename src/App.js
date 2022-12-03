@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react';
 import axios from 'axios';
 import Question from './Question.js';
+import Answer from './Answer.js';
 import './App.css';
 
 function App() {
@@ -8,9 +9,11 @@ function App() {
   const [quotes, setQuotes] = useState([]);
   const [author, setAuthor] = useState([]);
   const [randomFinalCharacter, setRandomFinalCharacter] = useState();
-  const randomCharacters = ["Eleven", "Robin Buckley"];
+  const randomCharacters = ["Eleven", "Robin Buckley", "Max Mayfield", "Mike Wheeler", "Joyce Byers", "Jim Hopper",
+                            "Dustin Henderson", "Lucas Sinclair", "Jonathan Byers", "Steve Harrington"];
   const [scoreboard, setScoreboard] = useState(0);
   const [questionsAsked, setQuestionsAsked] = useState(0);
+  const [showUserAnswer, setShowUserAnswer] = useState([""]);
   let usersAnswer;
 
 
@@ -46,6 +49,7 @@ function App() {
 
     getRandomCharacter(randomCharacters);
 
+
       });
     
     })
@@ -58,6 +62,17 @@ function App() {
     gameLogic(usersAnswer);
   }
 
+  const getBool = (closeModalPlease) =>{
+    setOpenModal(closeModalPlease);
+    setQuestionsAsked(questionsAsked + 1);
+  }
+
+  // const showAnswer =() =>{
+  //   setOpenModal(true);
+  // //  setShowUserAnswer(<Answer correctAnswer={author} closeModal={setQuestionsAsked}/>)
+  // }
+// TESTING FUNCTIOANLITY WITH MODAL WE WILL PROB DELETE THIS & ADJUST FOR OUR NEEDS
+  const [openModal, setOpenModal] = useState(false)
 
   const gameLogic = (usersAnswer) =>{
     console.log(usersAnswer);
@@ -68,21 +83,39 @@ function App() {
     } else {
       console.log("wrong");
     }
-    setQuestionsAsked(questionsAsked + 1);
+    setOpenModal(true);
+
   }
 
   console.log(questionsAsked);
   console.log(`Score ${scoreboard}`);
 
 
+
+  
+ 
+
+  // Modal Logic to show correct answer
+  //Create Modal component
+  // Have it render after a quote is gussed
+  // When user clicks [x] on modal we increment our questionAsked state which causes a re-render
+  // Thus calling the API Again and then also ressettingg our 
+  // setShowUserAnswer State back to a empty string
+
   return (
-    <div className="App">
-      <Question 
-          quote={quotes}
-          character={author}
-          randomCharacter={randomFinalCharacter}
-          getUserPick={getUserAnswer}
-          />
+    <div className="app-container">
+      <div className="game-container">
+        <p className="question-counter">{`Questions Asked: ${questionsAsked}`}</p>
+        <p className="scoreboard">{`Score: ${scoreboard}`}</p>
+        {openModal && <Answer correctAnswer={author} closeModal={getBool} />}
+        <Question 
+            quote={quotes}
+            character={author}
+            randomCharacter={randomFinalCharacter}
+            getUserPick={getUserAnswer}
+            />
+      </div>
+      <footer></footer>
     </div>
   );
 

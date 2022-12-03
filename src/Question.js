@@ -12,7 +12,7 @@ const Question = (props) => {
     resetButtons();
    }
 
-//    Need to figure out logic to reset checked value whenever we update state
+
    const handleClick = ((e) =>{
     setUserAnswer(e.target.value);
 
@@ -38,13 +38,13 @@ const Question = (props) => {
     return(
 
         <form onSubmit={submitHandler}>
-            <fieldset>{props.quote}</fieldset>
+            <fieldset>"{props.quote}"</fieldset>
             <div>
-                <input type="radio" id="option1" name="character" value={props.character} onClick={handleClick} checked={checkedOne}></input>
+                <input type="radio" id="option1" name="character" value={props.character} onClick={handleClick} checked={checkedOne} required></input>
                 <label htmlFor="option1">{props.character}</label>
             </div>
             <div>
-                <input type="radio" id="option2" name="character" value={props.randomCharacter} onClick={handleClick} checked={checkedTwo}></input>
+                <input type="radio" id="option2" name="character" value={props.randomCharacter} onClick={handleClick} checked={checkedTwo} required></input>
                 <label htmlFor="option2">{props.randomCharacter}</label>
             </div>
             <div>
