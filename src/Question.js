@@ -6,7 +6,7 @@ const Question = (props) => {
    const [userAnswer, setUserAnswer] = useState('')
    const [checkedOne, setCheckedOne] = useState(false);
    const [checkedTwo, setCheckedTwo] = useState(false);
-
+   const [checkedThree, setCheckedThree] = useState(false);
    const submitHandler = (e) =>{
     props.getUserPick(e,userAnswer);
     resetButtons();
@@ -20,9 +20,15 @@ const Question = (props) => {
     if(e.target.id === "option1"){
         setCheckedOne(true);
         setCheckedTwo(false);
-        console.log(e.target);
-    } else {
+        setCheckedThree(false)
+    } else if(e.target.id === "option2"){
         setCheckedTwo(true);
+        setCheckedOne(false);
+        setCheckedThree(false);
+    }
+    else{
+        setCheckedThree(true);
+        setCheckedTwo(false);
         setCheckedOne(false);
     }
     // resetButtons();
@@ -32,6 +38,7 @@ const Question = (props) => {
    const resetButtons = () =>{
     setCheckedOne(false);
     setCheckedTwo(false);
+    setCheckedThree(false);
    }
 
 
@@ -44,8 +51,12 @@ const Question = (props) => {
                 <label htmlFor="option1">{props.character}</label>
             </div>
             <div>
-                <input type="radio" id="option2" name="character" value={props.randomCharacter} onClick={handleClick} checked={checkedTwo} required></input>
-                <label htmlFor="option2">{props.randomCharacter}</label>
+                <input type="radio" id="option2" name="character" value={props.randomCharacterOne} onClick={handleClick} checked={checkedTwo} required></input>
+                <label htmlFor="option2">{props.randomCharacterOne}</label>
+            </div>
+             <div>
+                <input type="radio" id="option3" name="character" value={props.randomCharacterTwo} onClick={handleClick} checked={checkedThree} required></input>
+                <label htmlFor="option2">{props.randomCharacterTwo}</label>
             </div>
             <div>
                 {/* <label htmlFor="submitBtn"></label> */}

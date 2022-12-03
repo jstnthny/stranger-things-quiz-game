@@ -8,7 +8,9 @@ function App() {
 
   const [quotes, setQuotes] = useState([]);
   const [author, setAuthor] = useState([]);
-  const [randomFinalCharacter, setRandomFinalCharacter] = useState();
+  // const [randomFinalCharacter, setRandomFinalCharacter] = useState();
+  const [randomCharacterOne, setRandomCharacterOne] = useState();
+  const [randomCharacterTwo, setRandomCharacterTwo] = useState();
   const [scoreboard, setScoreboard] = useState(0);
   const [questionsAsked, setQuestionsAsked] = useState(0);
   let usersAnswer;
@@ -30,19 +32,29 @@ function App() {
 
       // Function to grab a random character for our second option
       const randomCharacters = ["Eleven", "Robin Buckley", "Max Mayfield", "Mike Wheeler", "Joyce Byers", "Jim Hopper",
-                            "Dustin Henderson", "Lucas Sinclair", "Jonathan Byers", "Steve Harrington"];
+                                "Dustin Henderson", "Lucas Sinclair", "Jonathan Byers", "Steve Harrington", "Erica Sinclair",
+                                 "Mr. Clarke", "Sam Owens", "Kali Prasad","Keith","Murray Bauman"];
       const getRandomCharacter = (randomCharacter) => {
           // Filter to remove the orignal author of the quote from the array so we don't get a duplicate
          const newArray = randomCharacter.filter((character) =>{
           return character !== obj.author
       })
-
       console.log(newArray);
       // Setting our randndom character state with the help of a random number generator
-      setRandomFinalCharacter(newArray[Math.floor(Math.random() * newArray.length)])
-
+      let secondCharacter = newArray[Math.floor(Math.random() * newArray.length)]
+      setRandomCharacterOne(secondCharacter)
+      getAnotherRandomCharacter(newArray, secondCharacter);
     }
 
+    // Function to select second random character //
+    const getAnotherRandomCharacter = (randomCharacter, characterToRemove) => {
+          // Filter from array without og author & the first random character selected
+         const anotherNewArray = randomCharacter.filter((character) =>{
+         return character !== characterToRemove
+      })
+      setRandomCharacterTwo(anotherNewArray[Math.floor(Math.random() * anotherNewArray.length)])
+      console.log(anotherNewArray);
+    }
     getRandomCharacter(randomCharacters);
 
     return obj;
@@ -107,7 +119,8 @@ function App() {
         <Question 
             quote={quotes}
             character={author}
-            randomCharacter={randomFinalCharacter}
+            randomCharacterOne={randomCharacterOne}
+            randomCharacterTwo={randomCharacterTwo}
             getUserPick={getUserAnswer}
             />
       </div>
