@@ -26,8 +26,7 @@ useEffect(() =>{
         newArray.push(randomOrder[randoNumber]);
         randomOrder.splice(randoNumber,1);
    }
-   console.log("reached!")
-}, [updateState])
+}, [updateState, newArray])
     
 console.log(newArray);
 // console.log(`Random order array: ${randomOrder}`);
