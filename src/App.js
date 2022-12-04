@@ -13,6 +13,7 @@ function App() {
   const [randomCharacterTwo, setRandomCharacterTwo] = useState();
   const [scoreboard, setScoreboard] = useState(0);
   const [questionsAsked, setQuestionsAsked] = useState(0);
+  const [userResult, setUserResult] = useState([]);
   let usersAnswer;
 
 
@@ -83,8 +84,9 @@ function App() {
     if(usersAnswer === author){
       console.log("correct!");
       setScoreboard(scoreboard + 1);
+      setUserResult("You were right!")
     } else {
-      console.log("wrong");
+      setUserResult("Sorry not quite right!")
     }
     setOpenModal(true);
 
@@ -110,7 +112,7 @@ function App() {
       <div className="game-container">
         <p className="question-counter">{`Questions Asked: ${questionsAsked}`}</p>
         <p className="scoreboard">{`Score: ${scoreboard}`}</p>
-        {openModal && <Answer correctAnswer={author} closeModal={getBool} />}
+        {openModal && <Answer correctAnswer={author} closeModal={getBool} rightOrWrong={userResult}/>}
         <Question 
             quote={quotes}
             character={author}
