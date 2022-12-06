@@ -84,9 +84,9 @@ function App() {
     if(usersAnswer === author){
       console.log("correct!");
       setScoreboard(scoreboard + 1);
-      setUserResult("You were right!")
+      setUserResult(true)
     } else {
-      setUserResult("Sorry not quite right!")
+      setUserResult(false)
     }
     setOpenModal(true);
 
@@ -94,6 +94,11 @@ function App() {
 
   console.log(questionsAsked);
   console.log(`Score ${scoreboard}`);
+  // End game screen Pseudo CODE
+  // Show End game screen Component after 10 question so some piece of state
+  // will be set to "true" after 10 questions have been asked
+  // we can pass the score and total questions asked and display how many
+  // questions they got right!
 
 
 
