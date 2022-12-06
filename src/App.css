@@ -246,6 +246,8 @@ input[type="submit"]:hover{
   .modal-container{
     height: auto;
   }
+
+
 }
 
 @media(max-width: 600px){
@@ -260,7 +262,13 @@ input[type="submit"]:hover{
   }
   .radio-container{
     width: 100%;
-  }
+  } 
+
+  fieldset {
+	border: none;
+	font-size: 1.3rem;
+}
+ 
   input[type="submit"]{
     width: 100%;
   }
