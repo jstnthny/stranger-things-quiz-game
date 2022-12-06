@@ -9,12 +9,13 @@ function App() {
 
   const [quotes, setQuotes] = useState([]);
   const [author, setAuthor] = useState([]);
-  // const [randomFinalCharacter, setRandomFinalCharacter] = useState();
   const [randomCharacterOne, setRandomCharacterOne] = useState();
   const [randomCharacterTwo, setRandomCharacterTwo] = useState();
   const [scoreboard, setScoreboard] = useState(0);
   const [questionsAsked, setQuestionsAsked] = useState(0);
   const [userResult, setUserResult] = useState([]);
+  const [openModal, setOpenModal] = useState(false)
+  const [showTotalScore, setShowTotalScore] = useState(false);
   let usersAnswer;
 
 
@@ -72,16 +73,17 @@ function App() {
     gameLogic(usersAnswer);
   }
 
-  // RENAME
-  const getBool = (closeModalPlease) =>{
-    setOpenModal(closeModalPlease);
+  // Function that passes boolean to close modal after user answers question
+  // also increment questionsAsked and check if 10 questions have been asked
+  const closeModal= (modalBool) =>{
+    setOpenModal(modalBool);
     setQuestionsAsked(questionsAsked + 1);
       if(questionsAsked >= 9){
       setShowTotalScore(true);
     }
   }
 
-  const [openModal, setOpenModal] = useState(false)
+
 
   const gameLogic = (usersAnswer) =>{
     console.log(usersAnswer);
@@ -114,12 +116,12 @@ function App() {
   // Thus calling the API Again and then also ressettingg our 
   // setShowUserAnswer State back to a empty string
 
-  const [showTotalScore, setShowTotalScore] = useState(false);
+
 
   // RENAME 
   // FUNCTION THAT PASSES BOOLEAN PROP FROM END SCREEN 
-  const getNewBool = (closeModalAgain) =>{
-    setShowTotalScore(closeModalAgain)
+  const closeEndScreen = (endGameBool) =>{
+    setShowTotalScore(endGameBool)
     // SET ALL SCORES BACK TO 0
     setScoreboard(0);
     setQuestionsAsked(0);
@@ -129,10 +131,10 @@ function App() {
   return (
     <div className="app-container">
       <div className="game-container">
-        {showTotalScore && <EndScreen score={scoreboard} questionsAsked={questionsAsked} closeFinalScore={getNewBool}/>}
+        {showTotalScore && <EndScreen score={scoreboard} questionsAsked={questionsAsked} closeFinalScore={closeEndScreen}/>}
         <p className="question-counter">{`Questions Asked: ${questionsAsked}`}</p>
         <p className="scoreboard">{`Score: ${scoreboard}`}</p>
-        {openModal && <Answer correctAnswer={author} closeModal={getBool} rightOrWrong={userResult}/>}
+        {openModal && <Answer correctAnswer={author} closeModal={closeModal} rightOrWrong={userResult}/>}
         <Question 
             quote={quotes}
             character={author}
