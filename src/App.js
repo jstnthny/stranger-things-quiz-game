@@ -76,11 +76,8 @@ function App() {
   const getBool = (closeModalPlease) =>{
     setOpenModal(closeModalPlease);
     setQuestionsAsked(questionsAsked + 1);
-      if(questionsAsked >= 1){
+      if(questionsAsked >= 9){
       setShowTotalScore(true);
-      // SET ALL SCORES BACK TO 0
-      setScoreboard(0);
-      setQuestionsAsked(0);
     }
   }
 
@@ -123,6 +120,9 @@ function App() {
   // FUNCTION THAT PASSES BOOLEAN PROP FROM END SCREEN 
   const getNewBool = (closeModalAgain) =>{
     setShowTotalScore(closeModalAgain)
+    // SET ALL SCORES BACK TO 0
+    setScoreboard(0);
+    setQuestionsAsked(0);
   }
 
 
