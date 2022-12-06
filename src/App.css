@@ -17,6 +17,7 @@ body{
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
+  height: 100vh;
   /* background: rgb(14,14,25);
   background: linear-gradient(111deg, rgba(14,14,25,1) 0%, rgba(13,16,67,1) 100%); */
 }
