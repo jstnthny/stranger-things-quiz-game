@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react';
 import axios from 'axios';
 import Question from './Question.js';
 import Answer from './Answer.js';
+import EndScreen from './EndScreen.js';
 import './App.css';
 
 function App() {
@@ -71,9 +72,16 @@ function App() {
     gameLogic(usersAnswer);
   }
 
+  // RENAME
   const getBool = (closeModalPlease) =>{
     setOpenModal(closeModalPlease);
     setQuestionsAsked(questionsAsked + 1);
+      if(questionsAsked >= 1){
+      setShowTotalScore(true);
+      // SET ALL SCORES BACK TO 0
+      setScoreboard(0);
+      setQuestionsAsked(0);
+    }
   }
 
   const [openModal, setOpenModal] = useState(false)
@@ -85,10 +93,12 @@ function App() {
       console.log("correct!");
       setScoreboard(scoreboard + 1);
       setUserResult(true)
-    } else {
+    } else{
       setUserResult(false)
     }
+    
     setOpenModal(true);
+  
 
   }
 
@@ -100,11 +110,6 @@ function App() {
   // we can pass the score and total questions asked and display how many
   // questions they got right!
 
-
-
-  
- 
-
   // Modal Logic to show correct answer
   //Create Modal component
   // Have it render after a quote is gussed
@@ -112,9 +117,19 @@ function App() {
   // Thus calling the API Again and then also ressettingg our 
   // setShowUserAnswer State back to a empty string
 
+  const [showTotalScore, setShowTotalScore] = useState(false);
+
+  // RENAME 
+  // FUNCTION THAT PASSES BOOLEAN PROP FROM END SCREEN 
+  const getNewBool = (closeModalAgain) =>{
+    setShowTotalScore(closeModalAgain)
+  }
+
+
   return (
     <div className="app-container">
       <div className="game-container">
+        {showTotalScore && <EndScreen score={scoreboard} questionsAsked={questionsAsked} closeFinalScore={getNewBool}/>}
         <p className="question-counter">{`Questions Asked: ${questionsAsked}`}</p>
         <p className="scoreboard">{`Score: ${scoreboard}`}</p>
         {openModal && <Answer correctAnswer={author} closeModal={getBool} rightOrWrong={userResult}/>}
