@@ -20,7 +20,7 @@ return(
                 <section className="modal-body">
                     <p>The answer was {props.correctAnswer}</p>
                     <div className="gif-container">
-                        {props.rightOrWrong ? <img  class="gif-right" src={answerRight} alt="A Gif of Steve & Nancy from the show stranger things dancing"/> :<img class="gif-wrong" src={answerWrong} alt="A gif of Duston from the show Stranger Things looking sad. />  }
+                        {props.rightOrWrong ? <img  class="gif-right" src={answerRight} alt="A Gif of Steve & Nancy from the show stranger things dancing"/> :<img class="gif-wrong" src={answerWrong} alt="A gif of Duston from the show Stranger Things looking sad." />  }
                     </div>
                 </section>
                 <section className="modal-footer"><button onClick={closeHandler}>Next Quote</button></section>
