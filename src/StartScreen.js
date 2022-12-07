@@ -29,11 +29,11 @@ const StartScreen = (props) =>{
                         <form onSubmit={usersChoice}>
                             <p>Pick how many questions you'd like to answer!</p>
                             <div className="start-input-container">
-                                <div className="radio-container">
+                                <div className="start-radio-container">
                                     <input type="radio" id="option1" name="questions" onClick={handleStartClick} value={5}></input>
                                     <label htmlFor="option1">5 Questions</label>
                                 </div>
-                                <div className="radio-container">
+                                <div className="start-radio-container">
                                     <input type="radio" id="option2" name="questions" onClick={handleStartClick} value={10}></input>
                                     <label htmlFor="option2">10 Questions</label>
                                 </div>
