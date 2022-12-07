@@ -329,11 +329,11 @@ input[type="submit"]:hover{
   }
 
   .gif-container>.gif-wrong{
-    width: 55%;
+    display: none;
   }
 
   .gif-container>.gif-right{
-    width: 90%;
+    display: none
   }
 
 
