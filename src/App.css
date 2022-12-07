@@ -7,8 +7,7 @@ html { box-sizing: border-box;}
 
 .sr-only { position: absolute; width: 1px; height: 1px; margin: -1px; border: 0; padding: 0; white-space: nowrap; clip-path: inset(100%); clip: rect(0 0 0 0); overflow: hidden;}
 
-
-
+@import url('https://fonts.googleapis.com/css2?family=Boogaloo&family=Klee+One&display=swap');
 /* MAIN APP STYLES */
 
 body{
@@ -21,6 +20,25 @@ body{
   /* background: rgb(14,14,25);
   background: linear-gradient(111deg, rgba(14,14,25,1) 0%, rgba(13,16,67,1) 100%); */
 }
+
+/* Typography Styling */
+
+h1,h2,h3, button{
+  font-family: 'Boogaloo', cursive;
+}
+
+.end-screen-title>h2, .modal-title>h2{
+  font-size: 3rem;
+  margin: 20px 0 0 0;
+}
+
+
+p, fieldset, form, input{
+  font-family: 'Klee One', cursive;
+}
+
+
+/* General App styling */
 
 .app-container{
  
@@ -143,6 +161,7 @@ input[type="submit"]:hover{
 }
 
 
+
 .modal-container .modal-body{
   flex: 50%;
   display: flex;
@@ -150,6 +169,7 @@ input[type="submit"]:hover{
   align-items:center;
   font-size: 1.5rem;
 }
+
 
 .modal-container .footer{
   flex: 20%;
@@ -166,7 +186,7 @@ input[type="submit"]:hover{
   background-color: darkred;
   color: white;
   border-radius:5px;
-  font-size: 1rem;
+  font-size: 1.5rem;
   cursor: pointer;
 }
 
@@ -231,7 +251,7 @@ input[type="submit"]:hover{
   background-color: darkred;
   color: white;
   border-radius:5px;
-  font-size: 1rem;
+  font-size: 1.5rem;
   cursor: pointer;
 }
 
@@ -250,7 +270,7 @@ input[type="submit"]:hover{
 
 }
 
-@media(max-width: 600px){
+@media(max-width: 650px){
 
   .game-container{
     height: auto;

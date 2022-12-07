@@ -84,7 +84,7 @@ console.log(newArray);
                     </div>
                 </div>
                 <div>
-                    <input type="submit" id="submitBtn" value="Submit"></input>
+                    <input type="submit" id="submitBtn" value="Submit Answer"></input>
                 </div>
             </form>
         </div>
