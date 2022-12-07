@@ -12,10 +12,12 @@ const EndScreen = (props) =>{
             {/* <h1>{props.correctAnswer}</h1> */}
             <div className="end-screen-background">
                 <div className="end-screen-container">
-                    <section className="end-screen-title"><h2>{`Your total score was ${props.score}`}</h2>
+                    <section className="end-screen-title">
+                        <h2>{`Your total score was ${props.score}`}</h2>
                     </section>
-                    {/* <section className="end-screen-body"><p>{props.questionsAsked}</p></section> */}
-                    <section className="end-screen-footer"><button onClick={closeHandler}>New Game</button></section>
+                    <section className="end-screen-footer">
+                        <button onClick={closeHandler}>Play again?</button>
+                    </section>
                 </div>
             </div>
         </div>

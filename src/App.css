@@ -157,7 +157,7 @@ input[type="submit"]:hover{
   width: 800px;
   height: auto;
   border-radius: 12px;
-  background-color: rgba(255, 255, 255, 1);
+  background-color: #edf2f4;
   box-shadow: rgba(0,0,0,0.35) 0px 5px 15px;
   display: flex;
   flex-direction: column;
@@ -206,21 +206,34 @@ input[type="submit"]:hover{
 }
 
 .gif-container>.gif-wrong{
-  width: 70%;
+  width: 55%;
 }
 
-/* END GAME SCREEN */
+/* START SCREEN & END GAME SCREEN */
 
+.start-screen-container{
+  background-color: black;
+  height: auto;
+  width: 800px;
+  border-radius: 12px;
+  display: flex;
+  flex-direction: column;
+  padding: 25px;
 
-.main-end-screen-container{
+}
+
+.start-input-container{
+  display: flex;
+  justify-content: space-around;
+  margin: 20px;
+}
+
+.main-end-screen-container, .main-start-screen-container{
   display: flex;
   justify-content: center;
 }
 
-.end-screen-background{
-  /* width: 0%; */
-  /* height: 10%; */
-  /* background-color: rgba(200,200,200); */
+.end-screen-background, .start-screen-background{
   position: fixed;
   display: flex;
   justify-content: center;
@@ -260,6 +273,7 @@ input[type="submit"]:hover{
   display: flex;
   justify-content:center;
   align-items:center;
+  flex-direction: column;
 }
 
 .end-screen-container .end-screen-footer button{
