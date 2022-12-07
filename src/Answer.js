@@ -1,4 +1,6 @@
 import './App.css';
+import answerRight from './assets/answer-right.webp'
+import answerWrong from './assets/answer-wrong.gif'
 
 const Answer = (props) => {
 
@@ -15,7 +17,12 @@ return(
             <div className="modal-container">
                 <section className="modal-title"><h2>{props.rightOrWrong ? "You were right!" : "Sorry not quite right!"}</h2>
                 </section>
-                <section className="modal-body"><p>The answer was {props.correctAnswer}</p></section>
+                <section className="modal-body">
+                    <p>The answer was {props.correctAnswer}</p>
+                    <div className="gif-container">
+                        {props.rightOrWrong ? <img  class="gif-right" src={answerRight} /> :<img class="gif-wrong" src={answerWrong} />  }
+                    </div>
+                </section>
                 <section className="modal-footer"><button onClick={closeHandler}>Next Quote</button></section>
             </div>
         </div>
