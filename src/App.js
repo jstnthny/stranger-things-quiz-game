@@ -13,7 +13,7 @@ function App() {
   const [randomCharacterOne, setRandomCharacterOne] = useState();
   const [randomCharacterTwo, setRandomCharacterTwo] = useState();
   const [scoreboard, setScoreboard] = useState(0);
-  const [questionsAsked, setQuestionsAsked] = useState(0);
+  const [questionsAsked, setQuestionsAsked] = useState(1);
   const [userResult, setUserResult] = useState([]);
   const [openModal, setOpenModal] = useState(false);
   const [showTotalScore, setShowTotalScore] = useState(false);
@@ -142,7 +142,7 @@ function App() {
     setShowTotalScore(endGameBool)
     // SET ALL SCORES BACK TO 0
     setScoreboard(0);
-    setQuestionsAsked(0);
+    setQuestionsAsked(1);
     setNumOfQuestions(0);
   }
 

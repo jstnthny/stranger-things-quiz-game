@@ -28,7 +28,7 @@ const StartScreen = (props) =>{
                     {/* <section className="end-screen-body"><p>{props.questionsAsked}</p></section> */}
                     <section className="end-screen-footer">
                         <form onSubmit={usersChoice}>
-                            <fieldset>Insturctions?</fieldset>
+                            <p>Pick how many questions you'd like to answer!</p>
                             <div className="input-container">
                                 <div className="radio-container">
                                     <input type="radio" id="option1" name="questions" onClick={handleStartClick} value={4}></input>
