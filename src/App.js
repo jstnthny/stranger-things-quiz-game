@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react';
 import axios from 'axios';
 import Question from './Question.js';
 import Answer from './Answer.js';
+import StartScreen from './StartScreen.js';
 import EndScreen from './EndScreen.js';
 import './App.css';
 
@@ -14,9 +15,12 @@ function App() {
   const [scoreboard, setScoreboard] = useState(0);
   const [questionsAsked, setQuestionsAsked] = useState(0);
   const [userResult, setUserResult] = useState([]);
-  const [openModal, setOpenModal] = useState(false)
+  const [openModal, setOpenModal] = useState(false);
   const [showTotalScore, setShowTotalScore] = useState(false);
+  const [numOfQuestions, setNumOfQuestions] = useState([]);
+  const [newGame, setNewGame] = useState(true);
   let usersAnswer;
+
 
 
 
@@ -29,7 +33,7 @@ function App() {
       url: "https://strangerthings-quotes.vercel.app/api/quotes/1",
     }).then((res) => {
       res.data.map((obj) =>{
-        // ADD RETURN HERE
+        
       console.log(obj);
       setQuotes(obj.quote);
       setAuthor(obj.author);
@@ -68,7 +72,20 @@ function App() {
     })
   }, [questionsAsked])
 
+  //Function that sets the number of questions for the game
+  const getNumberOfQuestions = (e, numOfQuestions) =>{
+    e.preventDefault();
+    setNumOfQuestions(numOfQuestions);
+    console.log(numOfQuestions);
 
+  }
+
+  const startGame = (startGameBool) =>{
+    setNewGame(startGameBool);
+  }
+
+
+  // Function thats get the users answer from the question component
   const getUserAnswer = (e, userChoice) =>{
     e.preventDefault(); 
     usersAnswer = userChoice
@@ -80,8 +97,9 @@ function App() {
   const closeModal= (modalBool) =>{
     setOpenModal(modalBool);
     setQuestionsAsked(questionsAsked + 1);
-      if(questionsAsked >= 9){
+      if(questionsAsked >= numOfQuestions){
       setShowTotalScore(true);
+      setNewGame(true);
     }
   }
 
@@ -120,13 +138,12 @@ function App() {
 
 
 
-  // RENAME 
-  // FUNCTION THAT PASSES BOOLEAN PROP FROM END SCREEN 
   const closeEndScreen = (endGameBool) =>{
     setShowTotalScore(endGameBool)
     // SET ALL SCORES BACK TO 0
     setScoreboard(0);
     setQuestionsAsked(0);
+    setNumOfQuestions(0);
   }
 
 
@@ -134,6 +151,7 @@ function App() {
     <div className="screen-container">
       <div className="app-container wrapper">
         <div className="game-container">
+          {newGame &&<StartScreen getUsersChoice={getNumberOfQuestions} startGame={startGame}/>}
           {showTotalScore && <EndScreen score={scoreboard} questionsAsked={questionsAsked} closeFinalScore={closeEndScreen}/>}
           <p className="question-counter">{`Questions Asked: ${questionsAsked}`}</p>
           <p className="scoreboard">{`Score: ${scoreboard}`}</p>
