@@ -131,22 +131,24 @@ function App() {
 
 
   return (
-    <div className="app-container">
-      <div className="game-container">
-        {showTotalScore && <EndScreen score={scoreboard} questionsAsked={questionsAsked} closeFinalScore={closeEndScreen}/>}
-        <p className="question-counter">{`Questions Asked: ${questionsAsked}`}</p>
-        <p className="scoreboard">{`Score: ${scoreboard}`}</p>
-        {openModal && <Answer correctAnswer={author} closeModal={closeModal} rightOrWrong={userResult}/>}
-        <Question 
-            quote={quotes}
-            character={author}
-            randomCharacterOne={randomCharacterOne}
-            randomCharacterTwo={randomCharacterTwo}
-            getUserPick={getUserAnswer}
-            />
+    <div className="screen-container">
+      <div className="app-container wrapper">
+        <div className="game-container">
+          {showTotalScore && <EndScreen score={scoreboard} questionsAsked={questionsAsked} closeFinalScore={closeEndScreen}/>}
+          <p className="question-counter">{`Questions Asked: ${questionsAsked}`}</p>
+          <p className="scoreboard">{`Score: ${scoreboard}`}</p>
+          {openModal && <Answer correctAnswer={author} closeModal={closeModal} rightOrWrong={userResult}/>}
+          <Question 
+              quote={quotes}
+              character={author}
+              randomCharacterOne={randomCharacterOne}
+              randomCharacterTwo={randomCharacterTwo}
+              getUserPick={getUserAnswer}
+              />
+        </div>
       </div>
-      <footer></footer>
     </div>
+   
   );
 
 

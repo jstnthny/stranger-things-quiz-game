@@ -39,10 +39,20 @@ p, fieldset, form, input{
 
 
 /* General App styling */
+.screen-container{
+   background-color: rgba(0, 0, 0, 0.7);
+}
+
+.wrapper{
+  margin: 0 auto;
+  width: 85%;
+  max-width: 1400px;
+}
+
+
 
 .app-container{
  
-  background-color: rgba(0, 0, 0, 0.7);
   text-align: center;
   height: 100vh;
   padding: 1rem;
