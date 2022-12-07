@@ -29,6 +29,7 @@ function App() {
       url: "https://strangerthings-quotes.vercel.app/api/quotes/1",
     }).then((res) => {
       res.data.map((obj) =>{
+        // ADD RETURN HERE
       console.log(obj);
       setQuotes(obj.quote);
       setAuthor(obj.author);
@@ -59,8 +60,9 @@ function App() {
       console.log(anotherNewArray);
     }
     getRandomCharacter(randomCharacters);
+    // MOVE THIS RETURN!!! LINE 32!!!
+    return obj; 
 
-    return obj;
       });
     
     })
