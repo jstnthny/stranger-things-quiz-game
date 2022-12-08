@@ -139,6 +139,7 @@ function App() {
               getUserPick={getUserAnswer}
               />
         </div>
+        <footer>Built by Justin Abante @ Juno College</footer>
       </div>
     </div>
    
