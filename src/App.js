@@ -99,8 +99,7 @@ function App() {
     }
   }
 
-
-
+// Game logic function that checks if the players answer was correct + increments score result and closes modal
   const gameLogic = (usersAnswer) =>{
     console.log(usersAnswer);
 
@@ -111,13 +110,10 @@ function App() {
     } else{
       setUserResult(false)
     }
-    
     setOpenModal(true);
-  
-
   }
 
-
+// Function close end screen modal + reset scoreboard stats also
   const closeEndScreen = (endGameBool) =>{
     setShowTotalScore(endGameBool)
     setScoreboard(0);
@@ -129,9 +125,9 @@ function App() {
   return (
     <div className="screen-container">
       <div className="app-container wrapper">
-        <div className="game-container">
-          {newGame &&<StartScreen getUsersChoice={getNumberOfQuestions} startGame={startGame}/>}
-          {showTotalScore && <EndScreen score={scoreboard} questionsAsked={questionsAsked} closeFinalScore={closeEndScreen}/>}
+        {showTotalScore && <EndScreen score={scoreboard} questionsAsked={questionsAsked} closeFinalScore={closeEndScreen}/>}
+        {newGame &&<StartScreen getUsersChoice={getNumberOfQuestions} startGame={startGame}/>}
+        <div className={`game-container ${newGame ? "hide" : "show"}`}>
           <p className="question-counter">{`Questions Asked: ${questionsAsked}`}</p>
           <p className="scoreboard">{`Score: ${scoreboard}`}</p>
           {openModal && <Answer correctAnswer={author} closeModal={closeModal} rightOrWrong={userResult}/>}

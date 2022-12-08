@@ -74,6 +74,10 @@ p, fieldset, form, input{
   margin: 0 auto;
 }
 
+.game-container.hide{
+  display: none;
+}
+
 .question-counter{
   margin: 0;
 }
@@ -211,6 +215,7 @@ input[type="submit"]:hover{
 
 /* START SCREEN & END GAME SCREEN */
 
+
 .start-screen-container{
   background-color: black;
   height: auto;
@@ -233,7 +238,7 @@ input[type="submit"]:hover{
   justify-content: center;
 }
 
-.end-screen-background, .start-screen-background{
+.end-screen-background{
   position: fixed;
   display: flex;
   justify-content: center;
@@ -352,9 +357,6 @@ input[type="submit"]:hover{
     display: none
   }
 
-  .start-screen-container{
-    width: fit-content;
-  }
 
 
 }
