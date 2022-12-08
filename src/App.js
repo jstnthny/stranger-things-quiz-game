@@ -125,9 +125,9 @@ function App() {
   return (
     <div className="screen-container">
       <div className="app-container wrapper">
-        <div className="game-container">
-          {newGame &&<StartScreen getUsersChoice={getNumberOfQuestions} startGame={startGame}/>}
-          {showTotalScore && <EndScreen score={scoreboard} questionsAsked={questionsAsked} closeFinalScore={closeEndScreen}/>}
+        {showTotalScore && <EndScreen score={scoreboard} questionsAsked={questionsAsked} closeFinalScore={closeEndScreen}/>}
+        {newGame &&<StartScreen getUsersChoice={getNumberOfQuestions} startGame={startGame}/>}
+        <div className={`game-container ${newGame ? "hide" : "show"}`}>
           <p className="question-counter">{`Questions Asked: ${questionsAsked}`}</p>
           <p className="scoreboard">{`Score: ${scoreboard}`}</p>
           {openModal && <Answer correctAnswer={author} closeModal={closeModal} rightOrWrong={userResult}/>}
@@ -139,6 +139,7 @@ function App() {
               getUserPick={getUserAnswer}
               />
         </div>
+        <footer>Built by Justin Abante @ Juno College</footer>
       </div>
     </div>
    
