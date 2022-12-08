@@ -18,7 +18,7 @@ const Question = (props) => {
    const randomProps = [`${props.character}`, `${props.randomCharacterOne}`, `${props.randomCharacterTwo}`];
 
 
-
+// Use Effect that allowsus the shuffle & randomize the order position of quote options
 useEffect(() =>{
     let randomOrder = [0,1,2];
     for(let i = 3; i > 0; i--){
@@ -28,15 +28,10 @@ useEffect(() =>{
    }
 }, [updateState, newArray])
     
-console.log(newArray);
-
-
-
-
+// Function that checks which radio button was pressed and also sets the value of the usersAnswer to the value of the button
    const handleClick = ((e) =>{
     setUserAnswer(e.target.value);
 
-    console.log(e.target.id);
     if(e.target.id === "option1"){
         setCheckedOne(true);
         setCheckedTwo(false);

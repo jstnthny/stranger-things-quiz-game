@@ -11,7 +11,7 @@ const StartScreen = (props) =>{
         props.startGame(false);
     }
 
-    // Function that set teh users choice of 5 or 10 questions
+    // Function that set the users choice of 5 or 10 questions
     const handleStartClick = ((e) =>{
         setNumberOfQuotes(e.target.value);
     })

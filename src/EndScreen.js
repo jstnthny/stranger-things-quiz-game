@@ -1,5 +1,6 @@
 import './App.css';
 
+// Function closes modal if user presses on "Play Again"
 const EndScreen = (props) =>{
 
     const closeHandler = () =>{
@@ -9,7 +10,6 @@ const EndScreen = (props) =>{
     
     return(
         <div className="main-end-screen-container">
-            {/* <h1>{props.correctAnswer}</h1> */}
             <div className="end-screen-background">
                 <div className="end-screen-container">
                     <section className="end-screen-title">

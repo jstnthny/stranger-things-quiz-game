@@ -4,7 +4,7 @@ import answerWrong from './assets/answer-wrong.gif'
 
 const Answer = (props) => {
 
-
+// Function that closes the modal after a user clicks the button
 const closeHandler = () =>{
     props.closeModal(false);
 }
