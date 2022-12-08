@@ -30,7 +30,6 @@ function App() {
     }).then((res) => {
       res.data.map((obj) =>{
         
-      console.log(obj);
       setQuotes(obj.quote);
       setAuthor(obj.author);
 
@@ -43,7 +42,6 @@ function App() {
          const newArray = randomCharacter.filter((character) =>{
           return character !== obj.author
       })
-      console.log(newArray);
       // Setting our randndom character state with the help of a random number generator
       let secondCharacter = newArray[Math.floor(Math.random() * newArray.length)]
       setRandomCharacterOne(secondCharacter)
@@ -57,7 +55,6 @@ function App() {
          return character !== characterToRemove
       })
       setRandomCharacterTwo(anotherNewArray[Math.floor(Math.random() * anotherNewArray.length)])
-      console.log(anotherNewArray);
     }
     getRandomCharacter(randomCharacters);
 
@@ -72,7 +69,6 @@ function App() {
   const getNumberOfQuestions = (e, numOfQuestions) =>{
     e.preventDefault();
     setNumOfQuestions(numOfQuestions);
-    console.log(numOfQuestions);
 
   }
 
@@ -101,10 +97,8 @@ function App() {
 
 // Game logic function that checks if the players answer was correct + increments score result and closes modal
   const gameLogic = (usersAnswer) =>{
-    console.log(usersAnswer);
 
     if(usersAnswer === author){
-      console.log("correct!");
       setScoreboard(scoreboard + 1);
       setUserResult(true)
     } else{
