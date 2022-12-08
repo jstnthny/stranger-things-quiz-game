@@ -5,11 +5,13 @@ const StartScreen = (props) =>{
 
     const [numberOfQuotes, setNumberOfQuotes] = useState([]);
 
+    // functions that passes the users answer on submission as a prompt
     const usersChoice = (e) => {
         props.getUsersChoice(e, numberOfQuotes);
         props.startGame(false);
     }
 
+    // Function that set teh users choice of 5 or 10 questions
     const handleStartClick = ((e) =>{
         setNumberOfQuotes(e.target.value);
     })
@@ -18,7 +20,6 @@ const StartScreen = (props) =>{
 
         return(
         <div className="main-start-screen-container">
-            {/* <h1>{props.correctAnswer}</h1> */}
             <div className="start-screen-background">
                 <div className="start-screen-container">
                     <section className="start-screen-title"><h2>Welcome to "Who said that?"</h2>

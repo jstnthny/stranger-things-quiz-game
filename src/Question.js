@@ -29,7 +29,6 @@ useEffect(() =>{
 }, [updateState, newArray])
     
 console.log(newArray);
-// console.log(`Random order array: ${randomOrder}`);
 
 
 
@@ -54,6 +53,7 @@ console.log(newArray);
     }
    })
 
+// Function to reset buttons after a user submit their answer
    const resetButtons = () =>{
     setCheckedOne(false);
     setCheckedTwo(false);

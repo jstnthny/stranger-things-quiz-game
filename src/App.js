@@ -24,10 +24,6 @@ function App() {
 
 
 
- 
-
-
-  // STRANGER THINGS API
    useEffect(() => {
     axios({
       url: "https://strangerthings-quotes.vercel.app/api/quotes/1",
@@ -64,7 +60,7 @@ function App() {
       console.log(anotherNewArray);
     }
     getRandomCharacter(randomCharacters);
-    // MOVE THIS RETURN!!! LINE 32!!!
+
     return obj; 
 
       });
@@ -121,26 +117,9 @@ function App() {
 
   }
 
-  console.log(questionsAsked);
-  console.log(`Score ${scoreboard}`);
-  // End game screen Pseudo CODE
-  // Show End game screen Component after 10 question so some piece of state
-  // will be set to "true" after 10 questions have been asked
-  // we can pass the score and total questions asked and display how many
-  // questions they got right!
-
-  // Modal Logic to show correct answer
-  //Create Modal component
-  // Have it render after a quote is gussed
-  // When user clicks [x] on modal we increment our questionAsked state which causes a re-render
-  // Thus calling the API Again and then also ressettingg our 
-  // setShowUserAnswer State back to a empty string
-
-
 
   const closeEndScreen = (endGameBool) =>{
     setShowTotalScore(endGameBool)
-    // SET ALL SCORES BACK TO 0
     setScoreboard(0);
     setQuestionsAsked(1);
     setNumOfQuestions(0);
@@ -175,37 +154,3 @@ function App() {
 export default App;
 
 
-
-//------------------------------------------------------------------// 
-  // Psuedo Code
-
-  // App Component
-
-  // Create state items to hold quote & author
-  // Create state item for scoreboard
-  // Create an array with some random characters to use as the other options to guess
-  // Create a getRandomCharacter function that we'll be using to pick a random character from our array as our second option to guess for the quote
-  // Create a questionsAsked state that we will be updating whenever a question is answered we will also be passing into our dependency array so we can call the api and
-  // get a new quote whenever a question is answered
-
-  // When user presses start button, call API  ( url: "https://strangerthings-quotes.vercel.app/api/quotes/1) with useEffect
-      // <Question quote={question.quote}
-      //           optionOne={question.author}
-      //           optionTwo={getRandomCharacter} 
-      // />
-
-  // Whenever a question is answered (when one of the buttons is pressed) we update a state that we pass into our dependency array so can get a new quote from the api
-  // We also update our scoreboard if the user gets a question correct
-  // Update questionsAsked state by 1 whenever a questions is answered & when questionsAsked = 10 the game is over and the user will be given a option to play again (by pressing a button)
-    // This will then reset our scoreboard state and questionsAsked state back to 0 
-
-  // Question Component
-    //Create question component that we will importing into our App.js to create each question
-    
-    // return(
-    //    <div>
-    //      <h2>{props.quote}<h2> 
-    //      <button>{props.author}</button>
-    //      <button>{randomCharacter[randomNumber]}</button>
-    //    </div>
-    // )

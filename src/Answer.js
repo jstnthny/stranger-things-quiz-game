@@ -12,7 +12,6 @@ const closeHandler = () =>{
 
 return(
     <div className="main-model-container">
-        {/* <h1>{props.correctAnswer}</h1> */}
         <div className="modal-background">
             <div className="modal-container">
                 <section className="modal-title"><h2>{props.rightOrWrong ? "You were right!" : "Sorry not quite right!"}</h2>

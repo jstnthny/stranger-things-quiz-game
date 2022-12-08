@@ -353,7 +353,7 @@ input[type="submit"]:hover{
   }
 
   .start-screen-container{
-    max-width: 400px;
+    width: fit-content;
   }
 
 
