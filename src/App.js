@@ -99,8 +99,7 @@ function App() {
     }
   }
 
-
-
+// Game logic function that checks if the players answer was correct + increments score result and closes modal
   const gameLogic = (usersAnswer) =>{
     console.log(usersAnswer);
 
@@ -111,13 +110,10 @@ function App() {
     } else{
       setUserResult(false)
     }
-    
     setOpenModal(true);
-  
-
   }
 
-
+// Function close end screen modal + reset scoreboard stats also
   const closeEndScreen = (endGameBool) =>{
     setShowTotalScore(endGameBool)
     setScoreboard(0);
