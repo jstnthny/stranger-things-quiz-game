@@ -22,15 +22,15 @@ const Question = (props) => {
    }
 
     // Function that shows a popup if no answer is selected    
-    const empty = () =>{
-    if (userAnswer === ""){
-        MySwal.fire({
-            title: "Please Select an answer!",
-            confirmButtonColor: "darkred",
-            focusDeny: true
-        })
-   }
-}
+//     const empty = () =>{
+//     if (userAnswer === ""){
+//         MySwal.fire({
+//             title: "Please Select an answer!",
+//             confirmButtonColor: "darkred",
+//             focusDeny: true
+//         })
+//    }
+// }
 
    
    const randomProps = [`${props.character}`, `${props.randomCharacterOne}`, `${props.randomCharacterTwo}`];
@@ -85,20 +85,20 @@ useEffect(() =>{
                 <fieldset>"{props.quote}"</fieldset>
                 <div className="input-container">
                     <div className="radio-container">
-                        <input type="radio" id="option1" name="character" value={randomProps[newArray[0]]} onClick={handleClick} checked={checkedOne} required="true"></input>
+                        <input type="radio" id="option1" name="character" value={randomProps[newArray[0]]} onClick={handleClick} checked={checkedOne} required={true}></input>
                         <label htmlFor="option1">{randomProps[newArray[0]]}</label>
                     </div>
                     <div className="radio-container">
-                        <input type="radio" id="option2" name="character" value={randomProps[newArray[1]]} onClick={handleClick} checked={checkedTwo} required="true"></input>
+                        <input type="radio" id="option2" name="character" value={randomProps[newArray[1]]} onClick={handleClick} checked={checkedTwo} required={true}></input>
                         <label htmlFor="option2">{randomProps[newArray[1]]}</label>
                     </div>
                     <div className="radio-container">
-                        <input type="radio" id="option3" name="character" value={randomProps[newArray[2]]} onClick={handleClick} checked={checkedThree} required="true"></input>
+                        <input type="radio" id="option3" name="character" value={randomProps[newArray[2]]} onClick={handleClick} checked={checkedThree} required={true}></input>
                         <label htmlFor="option3">{randomProps[newArray[2]]}</label>
                     </div>
                 </div>
                 <div>
-                    <input type="submit" id="submitBtn" value="Submit Answer" onClick={empty}></input>
+                    <input type="submit" id="submitBtn" value="Submit Answer"></input>
                 </div>
             </form>
         </div>

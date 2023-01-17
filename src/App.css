@@ -96,7 +96,7 @@ p, fieldset, form, input{
 }
 
 input[type="radio"]{
-  display: none;
+  opacity: 0;
   text-align: center;
 }
 
