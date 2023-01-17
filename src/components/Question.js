@@ -1,9 +1,5 @@
 import { useState, useEffect } from 'react';
 import '../App.css';
-import Swal from 'sweetalert2'
-import withReactContent from 'sweetalert2-react-content'
-
-const MySwal = withReactContent(Swal)
 
 const Question = (props) => {
 
@@ -20,17 +16,6 @@ const Question = (props) => {
     resetButtons();
     setUserAnswer("");
    }
-
-    // Function that shows a popup if no answer is selected    
-//     const empty = () =>{
-//     if (userAnswer === ""){
-//         MySwal.fire({
-//             title: "Please Select an answer!",
-//             confirmButtonColor: "darkred",
-//             focusDeny: true
-//         })
-//    }
-// }
 
    
    const randomProps = [`${props.character}`, `${props.randomCharacterOne}`, `${props.randomCharacterTwo}`];
