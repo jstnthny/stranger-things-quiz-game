@@ -101,7 +101,7 @@ function App() {
     if(usersAnswer === author){
       setScoreboard(scoreboard + 1);
       setUserResult(true)
-    } else{
+    } else if (usersAnswer !== author) {
       setUserResult(false)
     }
     setOpenModal(true);

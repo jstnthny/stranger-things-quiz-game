@@ -138,7 +138,6 @@ input[type="submit"]:hover{
 }
 
 
-
 /* MODAL STYLES */
 
 .main-model-container{
@@ -147,9 +146,6 @@ input[type="submit"]:hover{
 }
 
 .modal-background{
-  /* width: 0%; */
-  /* height: 10%; */
-  /* background-color: rgba(200,200,200); */
   position: fixed;
   display: flex;
   justify-content: center;
