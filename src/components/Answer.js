@@ -1,6 +1,6 @@
-import './App.css';
-import answerRight from './assets/answer-right.webp'
-import answerWrong from './assets/answer-wrong.gif'
+import '../App.css';
+import answerRight from '../assets/answer-right.webp'
+import answerWrong from '../assets/answer-wrong.gif'
 
 const Answer = (props) => {
 

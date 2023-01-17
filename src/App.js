@@ -1,9 +1,9 @@
 import { useEffect, useState } from 'react';
 import axios from 'axios';
-import Question from './Question.js';
-import Answer from './Answer.js';
-import StartScreen from './StartScreen.js';
-import EndScreen from './EndScreen.js';
+import Question from './components/Question.js';
+import Answer from './components/Answer.js';
+import StartScreen from './components/StartScreen.js';
+import EndScreen from './components/EndScreen.js';
 import './App.css';
 
 function App() {

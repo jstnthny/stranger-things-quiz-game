@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import './App.css';
+import '../App.css';
 import Swal from 'sweetalert2'
 import withReactContent from 'sweetalert2-react-content'
 
@@ -21,6 +21,7 @@ const Question = (props) => {
     setUserAnswer("");
    }
 
+    // Function that shows a popup if no answer is selected    
     const empty = () =>{
     if (userAnswer === ""){
         MySwal.fire({
