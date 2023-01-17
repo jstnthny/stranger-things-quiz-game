@@ -1,4 +1,4 @@
-import './App.css';
+import '../App.css';
 
 // Function closes modal if user presses on "Play Again"
 const EndScreen = (props) =>{
